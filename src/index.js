@@ -113,8 +113,9 @@ function drawData () {
                     const change1h = percentChange1h ? (percentChange1h > 0 ? textChange1h.green : textChange1h.red) : 'NA'
                     const marketCap = record[`market_cap_${convert}`.toLowerCase()]
                     const displayedMarketCap = humanizeIsEnabled ? humanize.compactInteger(marketCap, 3) : marketCap
+                    const rank = record.rank
                     return [
-                    record.rank,
+                    rank < 50 ? colors.red(rank) : rank,
                     `${supportEmoji ? '💰  ' : ''}${record.symbol}`,
                     record[`price_${convert}`.toLowerCase()],
                     change1h,
